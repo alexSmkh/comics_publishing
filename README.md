@@ -17,8 +17,7 @@
         [**Мои приложения**](https://vk.com/apps?act=manage). В качестве типа
          приложения следует указать **standalone**
         * В настройках приложения скопируйте **client_id** и поместите в ссылку:
-        https://oauth.vk.com/authorize?client_id=**client_id**&scope=photos,groups,
-        wall,offline&response_type=token
+        https://oauth.vk.com/authorize?client_id=**client_id**&scope=photos,groups,wall,offline&response_type=token
         * Вставьте полученную ссылку в адресную строку браузера и перейдите по
         ней 
         * Вы получите access_token — строку наподобие
