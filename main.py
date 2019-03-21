@@ -18,13 +18,13 @@ def get_url_for_upload_comic(access_token, group_id):
     return response['response']['upload_url']
 
 
-def upload_comics_to_server(url_for_upload, filename):
+def upload_comic_to_server(url_for_upload, filename):
     files = {'photo': open(filename, 'rb')}
     response = requests.post(url_for_upload, files=files).json()
     return response
 
 
-def save_comics_in_group_album(access_token, group_id, info_for_save):
+def save_comic_in_group_album(access_token, group_id, info_for_save):
     url = 'https://api.vk.com/method/photos.saveWallPhoto'
     params = {
         'group_id': group_id,
@@ -79,8 +79,8 @@ def main():
 
     filename, comic_description = fetch_comic()
     url_server_for_upload_comics = get_url_for_upload_comic(access_token, group_id)
-    info_for_save = upload_comics_to_server(url_server_for_upload_comics, filename)
-    info_for_publishing = save_comics_in_group_album(access_token, group_id, info_for_save)
+    info_for_save = upload_comic_to_server(url_server_for_upload_comics, filename)
+    info_for_publishing = save_comic_in_group_album(access_token, group_id, info_for_save)
     publishing_comic_in_group(access_token, group_id, info_for_publishing, comic_description)
     remove(join(getcwd(), filename))
 
